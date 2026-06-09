@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Luxella Spaces — timeless elegance */
+    --background: 36 33% 97%;          /* cream */
+    --foreground: 30 15% 18%;          /* deep warm charcoal */
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 15% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 15% 18%;
+
+    --primary: 30 25% 22%;             /* espresso */
+    --primary-foreground: 36 33% 97%;
+
+    --secondary: 35 25% 90%;           /* beige */
+    --secondary-foreground: 30 25% 22%;
+
+    --muted: 35 20% 93%;
+    --muted-foreground: 30 10% 40%;
+
+    --accent: 38 45% 58%;              /* soft gold */
+    --accent-foreground: 30 25% 22%;
+
+    --gold: 38 50% 55%;
+    --gold-soft: 40 45% 78%;
+    --sand: 34 30% 86%;
+    --ink: 30 15% 14%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 20% 86%;
+    --input: 35 20% 86%;
+    --ring: 38 45% 58%;
+
+    --radius: 0.25rem;
+
+    --gradient-gold: linear-gradient(135deg, hsl(38 55% 65%), hsl(40 45% 78%));
+    --gradient-overlay: linear-gradient(180deg, hsl(30 25% 12% / 0.05) 0%, hsl(30 25% 12% / 0.55) 100%);
+    --shadow-soft: 0 20px 60px -20px hsl(30 25% 22% / 0.18);
+    --shadow-gold: 0 12px 40px -12px hsl(38 50% 55% / 0.35);
+
+    --transition-elegant: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+  h1, h2, h3, h4, h5, .font-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  ::selection { background: hsl(var(--accent) / 0.4); }
+}
+
+@layer utilities {
+  .container-luxe { @apply max-w-7xl mx-auto px-6 md:px-10; }
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.3em] text-accent font-medium;
+  }
+  .text-balance { text-wrap: balance; }
+  .gold-line {
+    background: var(--gradient-gold);
+  }
+  .hover-lift {
+    transition: transform 0.6s var(--transition-elegant), box-shadow 0.6s var(--transition-elegant);
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+  }
+  .img-zoom { overflow: hidden; }
+  .img-zoom img {
+    transition: transform 1.2s var(--transition-elegant);
+  }
+  .img-zoom:hover img { transform: scale(1.06); }
+  .animate-reveal {
+    animation: reveal 1s var(--transition-elegant) both;
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.9s var(--transition-elegant) both;
+  }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(24px); letter-spacing: 0.05em; }
+  to   { opacity: 1; transform: translateY(0);    letter-spacing: -0.01em; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
